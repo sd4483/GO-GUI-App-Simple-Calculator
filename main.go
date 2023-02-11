@@ -68,7 +68,7 @@ func main() {
 
 		add := n1 + n2
 
-		result.Set("Result of the operation:   " + strconv.Itoa(add))
+		result.Set("Result of the addition:   " + strconv.Itoa(add))
 
 	})
 
@@ -84,7 +84,7 @@ func main() {
 
 		sub := n1 - n2
 
-		result.Set("Result of the operation:   " + strconv.Itoa(sub))
+		result.Set("Result of the subtraction:   " + strconv.Itoa(sub))
 
 	})
 
@@ -100,7 +100,7 @@ func main() {
 
 		mul := n1 * n2
 
-		result.Set("Result of the operation:   " + strconv.Itoa(mul))
+		result.Set("Result of the multiplication:   " + strconv.Itoa(mul))
 
 	})
 
@@ -116,7 +116,7 @@ func main() {
 
 		div := float64(n1) / float64(n2)
 
-		result.Set("Result of the operation:   " + strconv.FormatFloat(div, 'g', 3, 64))
+		result.Set("Result of the division:   " + strconv.FormatFloat(div, 'g', 3, 64))
 
 	})
 
