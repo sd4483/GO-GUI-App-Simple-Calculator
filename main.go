@@ -10,62 +10,55 @@ import (
 	"fyne.io/fyne/v2/data/binding"
 	//"image/color"
 	//"time"
+	//"strings"
+	"strconv"
 	
 )
-
-/* func updateTime(clock *widget.Label) {
-	formatted := time.Now().Format("Time: 03 :04 :05")
-	clock.SetText(formatted)
-} */
 
 func main() {
 	a := app.New()
 	w := a.NewWindow("Hey!")
 	
-	input := widget.NewEntry()
-	input.SetPlaceHolder("Enter text ...")
+	num_1 := widget.NewEntry()
+	num_1.SetPlaceHolder("Enter text ...")
 
-	content := binding.NewString()
-	content.Set("")
+	num_2 := widget.NewEntry()
+	num_2.SetPlaceHolder("Enter text...")
+
+	content_1 := binding.NewString()
+	content_1.Set("")
 	
-	text := widget.NewLabelWithData(content)
-	text.TextStyle = fyne.TextStyle{Bold: true}
+	content_2 := binding.NewString()
+    content_2.Set("")
 
-	print_content := container.NewVBox(input, widget.NewButton("Save", func() {
-		log.Println("Content was: ", input.Text)
-		content.Set(input.Text)
-	}),text)
+	result := binding.NewString()
+	result.Set("")
+	
+	text_1 := widget.NewLabelWithData(content_1)
+	text_2 := widget.NewLabelWithData(content_2)
+
+	result_text := widget.NewLabelWithData(result)
+	result_text.TextStyle = fyne.TextStyle{Bold: true}
+
+	print_content := container.NewVBox(num_1, num_2, widget.NewButton("Save", func() {
+		log.Println("Content was: ", num_1.Text)
+		log.Println("Content was: ", num_2.Text)
+		content_1.Set("Entered number 01:   " + num_1.Text)
+		content_2.Set("Entered number 02:   " + num_2.Text)
+
+		i1, e1 := strconv.Atoi(string(num_1.Text))
+		i2, e2 := strconv.Atoi(string(num_2.Text))
+		add := i1 + i2
+		_ = e1
+		_ = e2
+
+		result.Set("Result of the operation:   " + strconv.Itoa(add))
+
+	}), text_1,text_2,result_text)
 	
 	w.SetContent(print_content)
 
-	w.Resize(fyne.NewSize(300, 100))
+	w.Resize(fyne.NewSize(600, 200))
 	w.Show()
 	a.Run()
-
-/* 	clock := widget.NewLabel(" ")	
-	updateTime(clock)
-	
-	w.SetContent(clock)
-
-	go func() {
-		for range time.Tick(time.Second){
-			updateTime(clock)
-		}
-	}()
-	
-	w.SetMaster()
-	w.Show()
-	
-	w2 := a.NewWindow("Larger")
-	
-	w2.SetContent(widget.NewButton("Open new window", func() {
-		w3 := a.NewWindow("Second Window")
-		w3.SetContent(widget.NewLabel("Second Window!"))
-		w3.Show()
-	}))
-	
-	w2.Resize(fyne.NewSize(100, 100))
-	w2.Show()
-	
-	a.Run() */
 }
