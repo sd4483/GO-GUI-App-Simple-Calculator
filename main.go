@@ -5,12 +5,9 @@ import (
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/widget"
 	"fyne.io/fyne/v2/container"
-	//"fyne.io/fyne/v2/canvas"
 	"log"
 	"fyne.io/fyne/v2/data/binding"
-	//"image/color"
-	//"time"
-	//"strings"
+	"fyne.io/fyne/v2/layout"
 	"strconv"
 	
 )
@@ -20,16 +17,6 @@ func conv_to_int (s string) int {
 	_ = e
 	return i
 }
-
-/* func render_content () {
-	log.Println("Content was: ", num_1.Text)
-	log.Println("Content was: ", num_2.Text)
-	content_1.Set("Entered number 01:   " + num_1.Text)
-	content_2.Set("Entered number 02:   " + num_2.Text)
-
-	n1 = conv_to_int(num_1.Text)
-	n2 = conv_to_int(num_2.Text)
-} */
 
 func main() {
 	a := app.New()
@@ -120,11 +107,13 @@ func main() {
 
 	})
 
-	print_content := container.NewVBox(num_1, num_2, add_button, sub_button, mul_button, div_button, text_1,text_2,result_text)
-	
-	w.SetContent(print_content)
+	layout_1 := container.NewVBox(num_1, num_2)
+	layout_2 := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), add_button, sub_button, mul_button, div_button, layout.NewSpacer())
+	layout_3 := container.NewVBox(text_1, text_2, result_text)
 
-	w.Resize(fyne.NewSize(600, 200))
+	w.SetContent(container.New(layout.NewVBoxLayout(), layout_1, layout_2, layout_3))
+
+	//w.Resize(fyne.NewSize(600, 200))
 	w.Show()
 	a.Run()
 }
