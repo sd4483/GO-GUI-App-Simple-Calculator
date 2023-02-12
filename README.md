@@ -9,4 +9,6 @@
 ### Version 1.2
 <img width="280" alt="Screenshot 2023-02-11 at 11 55 35 PM" src="https://user-images.githubusercontent.com/21117963/218286032-2439b895-c37c-480f-933a-3f067f284ed6.png">
 Aligned all the buttons in one row.
-![](https://github.com/sd4483/GO-GUI-App-Simple-Calculator/blob/main/Simple%20GUI%20Calculator.gif)
+<br><br>
+
+![Calculator Working](https://github.com/sd4483/GO-GUI-App-Simple-Calculator/blob/main/Simple%20GUI%20Calculator.gif)
