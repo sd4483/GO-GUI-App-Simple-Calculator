@@ -18,6 +18,16 @@ func conv_to_int (s string) int {
 	return i
 }
 
+/* func render_content () {
+	log.Println("Content was: ", num_1.Text)
+	log.Println("Content was: ", num_2.Text)
+	content_1.Set("Entered number 01:   " + num_1.Text)
+	content_2.Set("Entered number 02:   " + num_2.Text)
+
+	n1 = conv_to_int(num_1.Text)
+	n2 = conv_to_int(num_2.Text)
+} */
+
 func main() {
 	a := app.New()
 	w := a.NewWindow("Simple GUI Calculator")
